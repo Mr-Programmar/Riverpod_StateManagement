@@ -32,14 +32,14 @@ class MyApp extends StatelessWidget {
 }
 
 
-class HomeScreen extends ConsumerWidget {
-  const HomeScreen({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    String ourdata = ref.read<String>(stringprovider);
-    return Scaffold(body: Center(child: Text(ourdata,style: TextStyle(fontSize: 30),),));
-  }
-}
+// class HomeScreen extends ConsumerWidget {
+//   const HomeScreen({Key? key}) : super(key: key);
+//
+//   @override
+//   Widget build(BuildContext context, WidgetRef ref) {
+//     String ourdata = ref.read<String>(stringprovider);
+//     return Scaffold(body: Center(child: Text(ourdata,style: TextStyle(fontSize: 30),),));
+//   }
+// }
 
 
