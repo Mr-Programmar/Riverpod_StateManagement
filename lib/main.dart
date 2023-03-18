@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'Future_Provider/HomeScreen.dart';
+import 'StateNotifierProvider/our_stateNotifier_Provider.dart';
 import 'StateProvider/our_State_provider.dart';
+import 'changenotifierProvider/ourchange_NotifierProvider.dart';
 
-final stringprovider= Provider<String>((ref) {
-
-  return "flutter riverpod";
-
-},);
+// final stringprovider= Provider<String>((ref) {
+//
+//   return "flutter riverpod";
+//
+// },);
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
@@ -26,7 +28,7 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-      home: const Home(),
+      home: const  UserScreen(),
     );
   }
 }
