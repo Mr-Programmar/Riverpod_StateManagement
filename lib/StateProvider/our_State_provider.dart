@@ -16,21 +16,17 @@ class CounterWidget extends ConsumerWidget {
         floatingActionButton:
             FloatingActionButton(onPressed: ()
             {
-              ref.read(counterStateProvider.state).state++;
+
+          ref.read(counterStateProvider.notifier).state=ref.read(counterStateProvider.notifier).state+1;
+
 
 
             }, child: Icon(Icons.add)),
-        body: Consumer(
-          builder: (context, ref, child) {
-            int count = ref.watch(counterStateProvider);
-
-            return Center(
-                child: Text(
-              count.toString(),
+        body: Center(
+            child: Text(
+              ref.watch(counterStateProvider).toString(),
               style: TextStyle(fontSize: 90, color: Colors.amberAccent),
-            ));
-          },
-        ),
+            )),
       ),
     );
   }
