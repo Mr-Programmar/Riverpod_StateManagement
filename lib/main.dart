@@ -3,9 +3,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'ASAD_riverpod/Post_Api/post_api_AtoZ.dart';
 import 'ASAD_riverpod/asadScreen.dart';
 import 'ASAD_riverpod/asad_stateprovider_ex2.dart';
 import 'ASAD_riverpod/get_Api/get_api_AtoZ_work.dart';
+import 'ASAD_riverpod/get_api_AtoZ_example2/get_api_AtoZ_example2.dart';
+import 'ASAD_riverpod/get_api_example_3_AtoZ/get_api_example_3.dart';
 import 'FutureProvider_API/Services.dart';
 import 'FutureProvider_API/UIScreen.dart';
 import 'Future_Provider/HomeScreen.dart';
@@ -47,7 +50,7 @@ class MyApp extends ConsumerWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: GetApiUi(),
+      home: PostApiScreen(),
     );
   }
 }

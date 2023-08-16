@@ -35,7 +35,7 @@ class Board {
 }
 
 class BoardRepostry {
-  static Future<Board>getApi() async {
+   Future<Board>getApi() async {
     String url = "https://www.boredapi.com/api/activity";
 
     final response = await Dio().get<Map<String,dynamic>>(url);
@@ -89,4 +89,8 @@ class _GetApiUiState extends ConsumerState<GetApiUi> {
   }
 }
 
-final getapiprovider = FutureProvider((ref) => BoardRepostry.getApi());
+final getapiprovider = FutureProvider((ref) => ref.read(classProvider).getApi());
+
+final classProvider = Provider<BoardRepostry>((ref) {
+  return   BoardRepostry() ;
+});
