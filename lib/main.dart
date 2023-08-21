@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_project/state_management_concept.dart';
 
 import 'ASAD_riverpod/Post_Api/post_api_AtoZ.dart';
 import 'ASAD_riverpod/asadScreen.dart';
@@ -50,7 +51,7 @@ class MyApp extends ConsumerWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: PostApiScreen(),
+      home:  Home (),
     );
   }
 }

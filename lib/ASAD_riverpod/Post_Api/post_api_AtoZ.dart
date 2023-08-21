@@ -25,7 +25,7 @@ class PostApiRepostry {
     required String deviceId,
     required bool driver,
   }) async {
-    String url = "http://192.168.1.7:8000/api/users/add_user";
+    String url = "http://192.168.1.3:8000/api/users/add_user";
     final response = await Dio().post(
       url,
       data: {
@@ -54,75 +54,51 @@ class PostApiController extends _$PostApiController {
   }
 
 
-  void controllerPostApi({
+  Future<void> controllerPostApi({
     required String phone,
     required String email,
     required String name,
     required String deviceId,
-    required bool driver,}) {
+    required bool driver,})
 
 
-    ref.read(PostApiRepostryProvider).postapi(phone: phone,
+
+  async {
+state = AsyncLoading();
+
+    await ref.read(PostApiRepostryProvider).postapi(phone: phone,
         email: email,
         name: name,
         deviceId: deviceId,
         driver: driver);
+
+    state = AsyncData(1);
   }
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//
+// final controlrProvider = StateNotifierProvider<PostApiController>((ref) {
+//
+//   return PostApiController();
+// });
 
 
 class PostApiScreen extends HookConsumerWidget {
-  const PostApiScreen({super.key});
+  PostApiScreen({super.key});
 
+
+  var isDone = false;
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+print("object");
+
     final phonecontrollerTour = useTextEditingController();
     final emailcontrollerTour = useTextEditingController();
     final isdrivercontrollerTour = useTextEditingController();
     final deviceidcontrollerTour = useTextEditingController();
     final namecontrollerTour = useTextEditingController();
-
+print( ref.watch(postApiControllerProvider).hasValue);
     return SafeArea(
       child: Scaffold(
           body: Column(children: [
@@ -143,20 +119,36 @@ class PostApiScreen extends HookConsumerWidget {
                 controller: emailcontrollerTour,
                 decoration: InputDecoration(hintText: "email")),
             ElevatedButton(
-              onPressed: () {
-                ref.read(PostApiRepostryProvider).postapi(
+
+
+
+              onPressed:
+              ref.read(postApiControllerProvider).isLoading==true|| isDone==true? null:
+
+                  () {
+                ref.read(postApiControllerProvider.notifier).controllerPostApi(
                   name: namecontrollerTour.text,
                   phone: phonecontrollerTour.text,
                   deviceId: deviceidcontrollerTour.text,
                   driver: true,
                   email: emailcontrollerTour.text,
                 );
-
+    isDone = true;
                 emailcontrollerTour.clear();
               },
-              child: Text("Button"),
+              child: ref.watch(postApiControllerProvider).isLoading? CircularProgressIndicator(): Text("Button"),
             ),
           ])),
     );
   }
 }
+
+
+
+
+
+
+
+
+
+

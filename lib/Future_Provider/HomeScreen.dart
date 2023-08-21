@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../StreamProvider/our_stream_provider.dart';
+import '../state_management_concept.dart';
 import 'our_future_provider.dart';
 
 class Home extends StatelessWidget {
@@ -15,10 +16,11 @@ class Home extends StatelessWidget {
       // Navigator.push(context, MaterialPageRoute(builder: (context) => WeatherScreen() ,));
 
 
-        child: Text("Stream Provider",style: TextStyle(fontSize: 40, color: Colors.blue),),onPressed:(){
-      Navigator.push(context, MaterialPageRoute(builder: (context) => NumbersScreen() ,));
+      //   child: Text("Stream Provider",style: TextStyle(fontSize: 40, color: Colors.blue),),onPressed:(){
+      // Navigator.push(context, MaterialPageRoute(builder: (context) => NumbersScreen() ,));
 
-
+    child: Text(" Stateful Concept Screen",style: TextStyle(fontSize: 40, color: Colors.blue),),onPressed:(){
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Test()));
 
       
       
